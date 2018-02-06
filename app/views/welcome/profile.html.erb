@@ -1,0 +1,45 @@
+<div class=container>
+<% if current_user %>
+<div class="text-center">
+  <h1>Welcome, <%= current_user.name %></h1>
+  <h4>Logged In with -> <strong><em><%= @auth['provider'].capitalize %></em></strong></h4>
+<!--    <%= image_tag('logo.png') %>  -->
+</div>
+<% end %>
+
+<h1> Enter your details below </h1> 
+<%= form_for welcome_profile_path, :method => "POST" do %>
+    <%= label_tag :email, "Email: " %> 
+        <%= email_field_tag :email %><br>
+    <%= label_tag :first_name, "First name: " %> 
+        <%= text_field_tag :first_name %><br> 
+    <%= label_tag :last_name, "Last name: " %> 
+        <%= text_field_tag :last_name %><br>
+    <%= label_tag :day_of_birth, "Day of birth: " %> 
+        <%= number_field_tag :day_of_birth %><br>
+    <%= label_tag :month_of_birth, "Month of birth: " %> 
+        <%= number_field_tag :month_of_birth %><br>
+    <%= label_tag :year_of_birth, "Year of birth: " %> 
+        <%= number_field_tag :year_of_birth %><br>
+    <%= label_tag :building, "Building: " %> 
+        <%= text_field_tag :building %><br>
+    <%= label_tag :street, "Street: " %> 
+        <%= text_field_tag :street %><br>
+    <%= label_tag :locality, "Locality: " %> 
+        <%= text_field_tag :locality %><br>
+    <%= label_tag :postcode, "Postcode: " %> 
+        <%= text_field_tag :postcode %><br>
+    <%= label_tag :country, "County/Country: " %> 
+        <%= text_field_tag :country %><br>
+    <%= label_tag :passport_photo, "Upload photo of passport: " %> 
+        <%= url_field_tag :passport_photo %><br>
+    <%= label_tag :passport_number, "Passport number: " %> 
+        <%= number_field_tag :passport_number %><br>
+    <%= label_tag :license_photo, "Upload photo of driving license: " %> 
+        <%= url_field_tag :license_photo %><br>
+
+
+     <%= submit_tag "Submit" %>
+<% end %>
+
+<br><br>
